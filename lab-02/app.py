@@ -3,6 +3,8 @@ from cipher.caesar import CaesarCipher
 from cipher.vigenere import VigenereCipher
 from cipher.railfence import RailFenceCipher
 from cipher.playfair import PlayFairCipher
+import os
+import subprocess
 app = Flask(__name__)
 
 @app.route("/")
@@ -10,8 +12,13 @@ def home():
     return render_template('index.html')
 
 @app.route("/caesar")
+# def caesar():
+    # return render_template('caesar.html')
+
 def caesar():
-    return render_template('caesar.html')
+    caesar_path = os.path.join('lab-03', 'caesar_cipher.py')
+    subprocess.Popen(['python', caesar_path])  # Mở ứng dụng PyQt5
+    return "Caesar Cipher application is opened!"
 
 @app.route("/caesar/encrypt", methods=['POST'])
 def caesar_encrypt():
@@ -31,7 +38,10 @@ def caesar_decrypt():
 #VIGENERE
 @app.route("/vigenere")
 def vigenere():
-    return render_template('vigenere.html')
+#     return render_template('vigenere.html')
+    vigenere_path = os.path.join('lab-03', 'vigenere_cipher.py')
+    subprocess.Popen(['python', vigenere_path])  # Mở ứng dụng PyQt5
+    return "VVigenerear Cipher application is opened!"
 
 @app.route("/vigenere/encrypt", methods=['POST'])
 def vigenere_encrypt():
@@ -52,7 +62,10 @@ def vigenere_decrypt():
 #PLAYFAIR
 @app.route("/playfair")
 def playfair():
-    return render_template('playfair.html')
+    # return render_template('playfair.html')
+    playfair_path = os.path.join('lab-03', 'playfair_cipher.py')
+    subprocess.Popen(['python', playfair_path])  # Mở ứng dụng PyQt5
+    return "Playfair Cipher application is opened!"
 
 @app.route("/playfair/encrypt", methods=['POST'])
 def playfair_encrypt():
@@ -76,7 +89,10 @@ def playfair_decrypt():
 #RAILFENCE
 @app.route("/railfence")
 def railfence():
-    return render_template('railfence.html')
+    # return render_template('railfence.html')
+    railfence_path = os.path.join('lab-03', 'railfence_cipher.py')
+    subprocess.Popen(['python', railfence_path])  # Mở ứng dụng PyQt5
+    return "Railfence Cipher application is opened!"
 
 @app.route("/railfence/encrypt", methods=['POST'])
 def railfence_encrypt():
